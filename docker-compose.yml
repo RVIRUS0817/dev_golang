@@ -1,0 +1,16 @@
+adachin:
+  build: .
+  container_name: adachin-go
+  networks:
+    adachin:
+      ipv4_address: xxx.xxx.xxx.xxx
+  tty: true
+  expose:
+    - "8080"
+  ports:
+    - "8080:8080"
+  volumes:
+    - ~/git/adachin-go:/go/src/github.com/adachin-go:cached
+  command: /root/service.sh
+  depends_on:
+    - db
